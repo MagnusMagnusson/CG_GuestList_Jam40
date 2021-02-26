@@ -1,6 +1,18 @@
+enum accessability_colorMatch {
+	ALL,
+	UNIQUE,
+	NONE
+}
+
 global.accessibility = {
 	colors:{
-		list: new Array()
+		list: new Array(),
+		canBeMatchedSettings : {
+			hair : accessability_colorMatch.ALL,
+			shirt : accessability_colorMatch.ALL,
+			pants : accessability_colorMatch.ALL,
+			car: accessability_colorMatch.ALL
+		}
 	}
 }
 
@@ -11,7 +23,6 @@ var makeColor = function(name, color){
 		color:color,
 		default_color:color,
 		unique: true,
-		canBeAskedAbout: true,
 	}
 };
 
@@ -45,4 +56,10 @@ function access_restoreAllDefaults(){
 		var col = global.accessibility.colors.list.get(i);
 		access_restoreDefaultColor(col);
 	}
+}
+
+function access_colorCanBeMatched(color, category){
+	return global.accessibility.colors.canBeMatchedSettings[$ category] == accessability_colorMatch.ALL || 
+	global.accessibility.colors.canBeMatchedSettings[$ category] == accessability_colorMatch.UNIQUE && access_getColor(color).unique;
+	
 }

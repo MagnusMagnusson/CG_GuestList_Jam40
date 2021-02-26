@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"bg_backStreet","path":"sprites/bg_backStreet/bg_backStreet.yy",},"order":1,},
+    {"id":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"order":0,},
     {"id":{"name":"scr_ArrayClass","path":"scripts/scr_ArrayClass/scr_ArrayClass.yy",},"order":1,},
     {"id":{"name":"scr_guestListGenerator","path":"scripts/scr_guestListGenerator/scr_guestListGenerator.yy",},"order":2,},
     {"id":{"name":"bg_frontLayer","path":"sprites/bg_frontLayer/bg_frontLayer.yy",},"order":3,},
@@ -15,13 +16,16 @@
     {"id":{"name":"s_pants","path":"sprites/s_pants/s_pants.yy",},"order":2,},
     {"id":{"name":"s_hair","path":"sprites/s_hair/s_hair.yy",},"order":0,},
     {"id":{"name":"o_leftCar","path":"objects/o_leftCar/o_leftCar.yy",},"order":5,},
+    {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},"order":0,},
     {"id":{"name":"o_walking_right_human","path":"objects/o_walking_right_human/o_walking_right_human.yy",},"order":2,},
+    {"id":{"name":"s_tie","path":"sprites/s_tie/s_tie.yy",},"order":6,},
     {"id":{"name":"o_rightCar","path":"objects/o_rightCar/o_rightCar.yy",},"order":6,},
     {"id":{"name":"s_shirt","path":"sprites/s_shirt/s_shirt.yy",},"order":1,},
     {"id":{"name":"o_car","path":"objects/o_car/o_car.yy",},"order":4,},
     {"id":{"name":"o_genericHuman","path":"objects/o_genericHuman/o_genericHuman.yy",},"order":0,},
     {"id":{"name":"s_portal","path":"sprites/s_portal/s_portal.yy",},"order":3,},
     {"id":{"name":"s_car_parts","path":"sprites/s_car_parts/s_car_parts.yy",},"order":5,},
+    {"id":{"name":"scr_macros","path":"scripts/scr_macros/scr_macros.yy",},"order":3,},
     {"id":{"name":"o_portal","path":"objects/o_portal/o_portal.yy",},"order":1,},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"order":0,},
   ],
@@ -60,6 +64,7 @@
     {"folderPath":"folders/Sprites/humans.yy","order":2,"resourceVersion":"1.0","name":"humans","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Accessability.yy","order":1,"resourceVersion":"1.0","name":"Accessability","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/humans.yy","order":1,"resourceVersion":"1.0","name":"humans","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/core loop.yy","order":2,"resourceVersion":"1.0","name":"core loop","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

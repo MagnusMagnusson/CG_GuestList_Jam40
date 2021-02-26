@@ -1,4 +1,4 @@
 // Inherit the parent event
 event_inherited();
 
-hspeed = 2.5;
+hspeed = baseSpeed;

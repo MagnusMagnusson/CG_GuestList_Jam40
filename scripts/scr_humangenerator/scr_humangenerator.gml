@@ -20,9 +20,9 @@ global.humanSet = {
 		createAttribute("hair_genericShort", 0, "", false),
 		createAttribute("hair_genericMiddleLong", 1, "", false),
 		createAttribute("hair_scruffy", 2, "", false),
-		createAttribute("hair_verylong", 3, "", false),
+		createAttribute("hair_verylong", 3, "Waist Long", true),
 		createAttribute("hair_elvis", 4, "", false),
-		createAttribute("hair_balding", 5, "", false),
+		createAttribute("hair_balding", 5, "Balding", true),
 		createAttribute("hair_puff", 6, "", false),
 		createAttribute("hair_uncombed", 7, "", false),
 		createAttribute("hair_80s", 8, "", false),
@@ -33,8 +33,8 @@ global.humanSet = {
 	shirts : [
 		createAttribute("shirt_buttons",0,"Buttoned Shirt", true),
 		createAttribute("shirt_striped",1,"Striped Shirt", true),
-		createAttribute("shirt_suit",2,"Suit and Tie", true),
-		createAttribute("shirt_short",3,"Belly Shirt", true),
+		createAttribute("shirt_suit",2,"Suit and Red Tie", true),
+		createAttribute("shirt_short",3,"Crop-Top", true),
 		createAttribute("shirt_checkered",4,"Checkered Shirt", true),
 		createAttribute("shirt_vNeck",5,"V-Neck Shirt", true),
 	],
@@ -107,5 +107,8 @@ function draw_human(data, _x,_y, xscale,yscale){
 	draw_sprite_ext(s_nakedHuman, 1,_x,_y,xscale,yscale,0,c_white,1);
 	draw_sprite_ext(s_pants, data.pants.sprite,_x,_y,xscale,yscale,0,data.color.pants.color,1);
 	draw_sprite_ext(s_shirt, data.shirt.sprite,_x,_y,xscale,yscale,0,data.color.shirt.color,1);
+	if(data.shirt.name == "shirt_suit"){
+		draw_sprite_ext(s_tie, 0,_x,_y,xscale,yscale,0,c_white,1);
+	}
 
 }

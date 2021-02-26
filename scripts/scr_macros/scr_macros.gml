@@ -1,0 +1,1 @@
+#macro guest_farAwayChance 0.25
