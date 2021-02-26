@@ -1,0 +1,2 @@
+me = generateCar();
+class = "car";

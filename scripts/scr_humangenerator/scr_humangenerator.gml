@@ -11,7 +11,8 @@ var createAttribute = function(name, sprite_ind, description, canBeMatched){
 global.humanSetSizes = {
 	hairs : 11,
 	shirts: 6,
-	pants: 7
+	pants: 7,
+	cars: 4,
 }
 
 global.humanSet = {
@@ -46,6 +47,13 @@ global.humanSet = {
 		createAttribute("pants_skirt",4,"Plain Skirt", true),
 		createAttribute("pants_stripeSkirt",5,"Striped Skirt", true),
 		createAttribute("pants_checkeredSkirt",6,"Checkered Skirt", true),
+	], 
+	
+	cars : [
+		createAttribute("car_family",0,"Family Car", true),
+		createAttribute("car_convertible",1,"Convertible Car", true),
+		createAttribute("car_van",2,"Van", true),
+		createAttribute("car_truck",3,"Flatbed Truck", true),
 	]
 }
 
@@ -74,4 +82,30 @@ function generateHuman(){
 	humanus.color.pants = getRandomColor();	
 	humanus.color.shirt = getRandomColor();
 	return humanus;
+}
+
+function generateCar(){
+	var humanus = generateHuman();
+	humanus.car = global.humanSet.cars[irandom(global.humanSetSizes.cars - 1)];
+	
+	humanus.color.car = getRandomColor();
+	while(humanus.color.car.name == "black"){
+		humanus.color.car = getRandomColor();
+	}
+	return humanus;
+}
+
+function draw_car(data, _x,_y, xscale, yscale){
+	draw_human(data, _x + 50*xscale, _y - 40*yscale,-xscale*0.8,0.8*yscale);
+	draw_sprite_ext(s_car_bodies, data.car.sprite,_x,_y,xscale,yscale,0,data.color.car.color,1);
+	draw_sprite_ext(s_car_parts, data.car.sprite,_x,_y,xscale,yscale,0,c_white,1);
+}
+
+function draw_human(data, _x,_y, xscale,yscale){
+	draw_sprite_ext(s_nakedHuman, 0,_x,_y,xscale,yscale,0,c_white,1);
+	draw_sprite_ext(s_hair, data.hair.sprite,_x,_y,xscale,yscale,0,data.color.hair.color,1);
+	draw_sprite_ext(s_nakedHuman, 1,_x,_y,xscale,yscale,0,c_white,1);
+	draw_sprite_ext(s_pants, data.pants.sprite,_x,_y,xscale,yscale,0,data.color.pants.color,1);
+	draw_sprite_ext(s_shirt, data.shirt.sprite,_x,_y,xscale,yscale,0,data.color.shirt.color,1);
+
 }

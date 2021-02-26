@@ -27,6 +27,9 @@
     {"compositeImage":{"FrameId":{"name":"38a2aa89-4e2d-4efd-bd2d-a462a30c39f2","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"38a2aa89-4e2d-4efd-bd2d-a462a30c39f2","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"LayerId":{"name":"cd5e7aaf-035d-41d0-817d-6788db974c1b","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_nakedHuman","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"resourceVersion":"1.0","name":"38a2aa89-4e2d-4efd-bd2d-a462a30c39f2","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"134ed485-2c57-4fbd-ba50-c2ffec860c72","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"134ed485-2c57-4fbd-ba50-c2ffec860c72","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"LayerId":{"name":"cd5e7aaf-035d-41d0-817d-6788db974c1b","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_nakedHuman","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"resourceVersion":"1.0","name":"134ed485-2c57-4fbd-ba50-c2ffec860c72","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"s_nakedHuman","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},
@@ -36,12 +39,13 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 2.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"aaf38fbc-0b52-49c8-903e-99edc1ea9ac2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"38a2aa89-4e2d-4efd-bd2d-a462a30c39f2","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"327f72af-025b-48d0-8a54-0fd4126a1a56","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"134ed485-2c57-4fbd-ba50-c2ffec860c72","path":"sprites/s_nakedHuman/s_nakedHuman.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
