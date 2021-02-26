@@ -4,7 +4,7 @@
     "path": "sprites/s_portal/s_portal.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

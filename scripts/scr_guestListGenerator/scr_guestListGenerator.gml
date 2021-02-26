@@ -41,6 +41,12 @@ function findGuests(n){
 	return list;
 }
 
+function getAllDescriptions(guestList){
+	var descriptionList = guestList.map(function(elem) {
+		return getFullDescriptionStruct(elem);
+	});
+	return descriptionList;
+}
 
 function getFullDescriptionStruct(guest){
 	var description = {};
@@ -62,9 +68,11 @@ function getFullDescriptionStruct(guest){
 	};
 	description.location = {
 		description: -1,
+		color: -1,
 	};
 	description.activity= {
 		description: -1,
+		color: -1,
 	};
 	
 	description.length = 0;
@@ -75,10 +83,10 @@ function getFullDescriptionStruct(guest){
 	}
 			
 	if(guest.id.far_away){
-		description.location.description = "Beyond The Basketball Court";
+		description.location.description = "Far Away";
 		description.length++;
 	} else{
-		description.location.description = "Not Beyond The Basketaball Court";
+		description.location.description = "Nearby";
 		description.length++;
 	}
 			
@@ -126,7 +134,6 @@ function getFullDescriptionStruct(guest){
 	}
 	return description;
 }
-
 
 function getDescriptionFromStruct(descriptionStruct){
 	var desc = "";
@@ -201,5 +208,19 @@ function getDescriptionFromStruct(descriptionStruct){
 	}
 	
 	return desc;
+}
+
+function getLimitedDescriptionStruct(guest, n){
+	var struct = getFullDescriptionStruct(guest);
 	
+	while(struct.length > n){
+		var elem = choose("hair","shirt","pants","car","location","activity");
+		var colOrDesc = choose("color","description");
+		if(struct[$ elem][$ colOrDesc] != -1){
+			struct[$ elem][$ colOrDesc] = -1;
+			struct.length--;
+		}
+	}
+	
+	return struct;
 }

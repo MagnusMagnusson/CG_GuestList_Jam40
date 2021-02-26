@@ -199,6 +199,16 @@ function Array() constructor {
 		return ans;
 	}
 	
+	static map = function(_func){
+		func = _func;
+		ans = new Array();
+		forEach(function(elem, pos){
+			ans.add(func(elem,pos));
+		});
+		return ans;
+	}
+	
+	
 	///@function	find(value)
 	///@description	finds a value and returns its position. -1 if not found
 	///@param		{any} value

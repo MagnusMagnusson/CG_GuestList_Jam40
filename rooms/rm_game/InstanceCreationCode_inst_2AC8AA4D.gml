@@ -1,1 +1,0 @@
-linkedPortal = "FrontStreetBottom_Left";

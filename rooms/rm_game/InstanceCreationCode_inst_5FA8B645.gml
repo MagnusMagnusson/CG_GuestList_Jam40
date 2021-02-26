@@ -1,1 +1,0 @@
-linkedPortal = "topRight_below";

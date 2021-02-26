@@ -1,1 +1,0 @@
-linkedPortal = "Greenbuilding_left";
