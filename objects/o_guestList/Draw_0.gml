@@ -2,7 +2,9 @@ if(!ctrl.paused){
 	draw_self();
 	draw_set_color(0);
 
-	h = 0;
+	h = 20;
+	
+	draw_text(x + 10, y + 70, string(ctrl.found) +"/"+ string(ceil(0.1+ctrl.target)));
 	ctrl.guestList.forEach(function(elem, pos){
 		var yPos = y + 70 + h + 15*pos;
 	
@@ -18,10 +20,13 @@ if(!ctrl.paused){
 			return 0;
 		}
 	
+		draw_set_color(c_black);
+		if(elem.done){
+			draw_set_color(c_gray);
+		}
 		draw_text_ext(x + 10, yPos, string(1+pos) + ". " + desc, sep, w);
+		
 		
 		h += 15 + string_height(text) * (tHeight)
 	});
-
-	draw_text(0,0,string(sep) + " , " + string(w));
 }

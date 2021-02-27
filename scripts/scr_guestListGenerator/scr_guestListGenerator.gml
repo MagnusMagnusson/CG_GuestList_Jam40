@@ -49,7 +49,9 @@ function getAllDescriptions(guestList){
 }
 
 function getFullDescriptionStruct(guest){
-	var description = {};
+	var description = {
+		done: false,
+	};
 	description.hair = {
 		color:-1,
 		description: -1,
@@ -74,6 +76,7 @@ function getFullDescriptionStruct(guest){
 		description: -1,
 		color: -1,
 	};
+	description.isCar = guest.id.class == "car";
 	
 	description.length = 0;
 				

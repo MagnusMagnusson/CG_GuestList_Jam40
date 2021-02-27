@@ -13,6 +13,11 @@ global.accessibility = {
 			pants : accessability_colorMatch.ALL,
 			car: accessability_colorMatch.ALL
 		}
+	},
+	text:{
+		font: fnt_consolas_18,
+		fontSize: 12,
+		defaultfont: fnt_consolas_14,
 	}
 }
 
@@ -26,13 +31,13 @@ var makeColor = function(name, color){
 	}
 };
 
-makeColor("white",c_white);
-makeColor("black",c_black);
-makeColor("red",c_red);
-makeColor("yellow",c_yellow);
-makeColor("green",c_green);
-makeColor("blue",c_aqua);
-makeColor("purple",c_purple);
+makeColor("white",$D7D2D6);
+makeColor("brown",$313156);
+makeColor("red",$1717F2);
+makeColor("yellow",$10F7F7);
+makeColor("green",$2DA107);
+makeColor("blue",$D45417);
+makeColor("purple",$D100AD);
 
 function access_colorList(){
 	return global.accessibility.colors.list;
@@ -63,3 +68,18 @@ function access_colorCanBeMatched(color, category){
 	global.accessibility.colors.canBeMatchedSettings[$ category] == accessability_colorMatch.UNIQUE && access_getColor(color).unique;
 	
 }
+
+function access_getFont(){
+	return global.accessibility.text.font;
+}
+
+function access_setFont(font){
+	global.accessibility.text.font = font;
+}
+
+
+function draw_accessFont(){
+	draw_set_font(access_getFont());
+}
+
+draw_accessFont();

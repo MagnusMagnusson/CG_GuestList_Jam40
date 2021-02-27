@@ -15,3 +15,11 @@ mouseEnter = function(){
 mouseLeave = function(){
 	inst_infobox_gameMenu.text =  inst_infobox_gameMenu.defaultText;
 }
+
+action = function(){
+	with(ctrl){
+		gamemode = gameModeGet(GameModes.MARATHON);
+		gamemode.setup();
+	}
+	layer_set_visible(layer, false);
+}

@@ -5,6 +5,9 @@ function doIMatch(guest_id){
 	match = false;
 	for(var i = 0; i < guestList.size; i++){
 		var desc = guestList.get(i);
+		if(desc.done){
+			continue;
+		}
 		if(descriptionMatch(guest_id, desc)){
 			match = true;
 			if(desc.length > matchSize){
@@ -24,13 +27,13 @@ function descriptionMatch(guest, descriptionStruct){
 	var res = partialMatch(guest, descriptionStruct, "hair") &&
 	partialMatch(guest, descriptionStruct, "shirt") &&
 	partialMatch(guest, descriptionStruct, "pants") &&
-	(guest.class != "car" || partialMatch(guest, descriptionStruct, "car"));
+	partialMatch(guest, descriptionStruct, "car");
 	return res;
 }
 
 function partialMatch(guest, description, field){
 	var me = guest.me;
-	var res =  ( (description[$ field].color == -1 || description[$ field].color == me.color[$ field].name) &&
-		(description[$ field].description == -1 || description[$ field].description.description == me[$ field].description));
+	var res =  ( (description[$ field].color == -1 || ((field != "car" || guest.id.class == "car") && description[$ field].color == me.color[$ field].name))) &&
+		(description[$ field].description == -1 || (((field != "car" || guest.id.class == "car") && description[$ field].description.description == me[$ field].description)));
 	return res;
 }

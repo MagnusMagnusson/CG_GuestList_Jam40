@@ -14,5 +14,9 @@ failedClick = function(guest){
 	gamemode.failedClick(guest);
 };
 
+
+gameOver = function(silent){
+	gamemode.gameOver(silent);
+}
 gamemode = noone;
 killInput = 0;
