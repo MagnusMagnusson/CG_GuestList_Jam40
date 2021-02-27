@@ -12,3 +12,11 @@ Goal: You are given fifty descriptions of varying detail. Find 50 guests to invi
 mouseLeave = function(){
 	inst_infobox_gameMenu.text =  inst_infobox_gameMenu.defaultText;
 }
+
+action = function(){
+	with(ctrl){
+		gamemode = gameModeGet(GameModes.FASTHOST_50);
+		gamemode.setup();
+	}
+	layer_set_visible(layer, false);
+}

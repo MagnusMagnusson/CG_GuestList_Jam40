@@ -125,7 +125,7 @@ function getFullDescriptionStruct(guest){
 		description.length++;
 	}
 			
-	if(access_colorCanBeMatched(guest.data.color.hat.name, "hair")){
+	if(guest.data.hat.canBeMatched && access_colorCanBeMatched(guest.data.color.hat.name, "hair")){
 		description.hat.color = guest.data.color.hat.name;
 		description.length++;
 	}

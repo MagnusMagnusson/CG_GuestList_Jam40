@@ -11,3 +11,11 @@ Goal: You are given ten descriptions of varying detail. Find 10 guests to invite
 mouseLeave = function(){
 	inst_infobox_gameMenu.text =  inst_infobox_gameMenu.defaultText;
 }
+
+action = function(){
+	with(ctrl){
+		gamemode = gameModeGet(GameModes.FASTHOST_10);
+		gamemode.setup();
+	}
+	layer_set_visible(layer, false);
+}

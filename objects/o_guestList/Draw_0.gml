@@ -28,7 +28,7 @@ if(!ctrl.paused){
 		draw_set_font(fnt_ComicSans_18);
 		draw_sprite(s_clown,0,x + sprite_width / 2, 30+y + sprite_height / 2);
 		draw_text_outlined(x + 50, y  + 70, "  CLOWN ALERT!",c_red,c_black);		
-		draw_text_outlined(x + 50, y  + 90+256, "CLICK THE CLOWN!",c_red,c_black);
+		draw_text_outlined(x + 50, y  + 90+256, "CATCH THE CLOWN!",c_red,c_black);
 		draw_reset();
 	}
 }

@@ -28,6 +28,17 @@ function draw_text_outlined(x, y, text, color, outline_color){
 function showGameOver(){
 	ctrl.playing = false;
 	ctrl.paused = true;
-	layer_set_visible(layer_get_id("Results"), true);
+	layer_set_visible(layer_get_id("il_results"), true);
+	layer_set_visible(layer_get_id("your_results"), true);
 	o_results.x = room_width;
+}
+
+function hideGameOver(){
+	with(o_localHighScoreList){
+		prepared = false;
+		list = [];
+	}
+	layer_set_visible(layer_get_id("il_results"), false);
+	layer_set_visible(layer_get_id("your_results"), false);
+	layer_set_visible(layer_get_id("your_statistics"), false);
 }

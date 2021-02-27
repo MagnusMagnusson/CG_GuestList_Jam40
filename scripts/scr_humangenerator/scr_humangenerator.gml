@@ -92,7 +92,8 @@ function generateHuman(){
 	};
 	
 	if(random(1) < hatChance){
-		humanus.hat = global.humanSet.hats[1];
+		humanus.hat = global.humanSet.hats[1];	
+		humanus.color.hat = getRandomColor();	
 	} else{
 		humanus.hat = global.humanSet.hats[0];
 	}
@@ -101,7 +102,6 @@ function generateHuman(){
 	humanus.pants = global.humanSet.pants[irandom(global.humanSetSizes.pants - 1)];
 	humanus.shirt = global.humanSet.shirts[irandom(global.humanSetSizes.shirts - 1)];
 	
-	humanus.color.hat = getRandomColor();	
 	humanus.color.hair = getRandomColor();
 	humanus.color.pants = getRandomColor();	
 	humanus.color.shirt = getRandomColor();
@@ -110,6 +110,11 @@ function generateHuman(){
 
 function generateCar(){
 	var humanus = generateHuman();
+	//NO HATS WHILE DRIVING >:(
+	if(humanus.color.hat != -1){
+		humanus.color.hat = -1;
+		humanus.hat = global.humanSet.hats[0];
+	}
 	humanus.car = global.humanSet.cars[irandom(global.humanSetSizes.cars - 1)];
 	
 	humanus.color.car = getRandomColor();
@@ -135,7 +140,13 @@ function draw_human(data, _x,_y, xscale,yscale){
 	draw_sprite_ext(s_nakedHuman, 1 + 2*data.skin.sprite,_x,_y,xscale,yscale,0,c_white,1);
 	draw_sprite_ext(s_pants, data.pants.sprite,_x,_y,xscale,yscale,0,data.color.pants.color,1);
 	draw_sprite_ext(s_shirt, data.shirt.sprite,_x,_y,xscale,yscale,0,data.color.shirt.color,1);
-	draw_sprite_ext(s_hat, data.hat.sprite,_x,_y,xscale,yscale,0,data.color.hat.color,1);
+	var hatColor;
+	if(data.color.hat == -1){
+		hatColor = c_white;
+	} else{
+		hatColor = data.color.hat.color;
+	}
+	draw_sprite_ext(s_hat, data.hat.sprite,_x,_y,xscale,yscale,0,hatColor,1);
 	if(data.shirt.name == "shirt_suit"){
 		draw_sprite_ext(s_tie, 0,_x,_y,xscale,yscale,0,c_white,1);
 	}

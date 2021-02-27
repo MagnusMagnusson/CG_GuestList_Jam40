@@ -9,12 +9,14 @@ function load_highScores(){
 		ctrl.highScores = {
 			attempts:{
 				marathon:[],
+				fastest_2:[],
 				fastest_10:[],
 				fastest_25:[],
 				fastest_50:[]
 			},
 			bestAttempt:{				
 				marathon:-1,
+				fastest_2:-1,
 				fastest_10:-1,
 				fastest_25:-1,
 				fastest_50:-1
