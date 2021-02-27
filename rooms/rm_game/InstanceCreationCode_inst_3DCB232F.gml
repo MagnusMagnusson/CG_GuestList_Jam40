@@ -6,11 +6,9 @@ action = function(){
 }
 
 mouseEnter = function(){
-	inst_infobox_gameMenu.text =  @" Back To Menu.
-	
-	Nothing to your fancy? Head back to the main menu then and click some other buttons.
-		
-	";
+	inst_infobox_gameMenu.text =  @"Back To Menu.
+
+Nothing to your fancy? Head back to the main menu then and click some other buttons.";
 }
 
 mouseLeave = function(){

@@ -15,7 +15,7 @@ global.accessibility = {
 		}
 	},
 	text:{
-		font: fnt_consolas_18,
+		font: fnt_consolas_14,
 		fontSize: 12,
 		defaultfont: fnt_consolas_14,
 	}

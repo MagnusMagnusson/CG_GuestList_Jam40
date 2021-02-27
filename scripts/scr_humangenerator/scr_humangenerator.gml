@@ -13,6 +13,7 @@ global.humanSetSizes = {
 	shirts: 6,
 	pants: 7,
 	cars: 4,
+	skins: 3,
 }
 
 global.humanSet = {
@@ -20,7 +21,7 @@ global.humanSet = {
 		createAttribute("hair_genericShort", 0, "", false),
 		createAttribute("hair_genericMiddleLong", 1, "", false),
 		createAttribute("hair_scruffy", 2, "", false),
-		createAttribute("hair_verylong", 3, "Waist Long", true),
+		createAttribute("hair_verylong", 3, "", false),
 		createAttribute("hair_elvis", 4, "", false),
 		createAttribute("hair_balding", 5, "Balding", true),
 		createAttribute("hair_puff", 6, "", false),
@@ -49,6 +50,13 @@ global.humanSet = {
 		createAttribute("pants_checkeredSkirt",6,"Checkered Skirt", true),
 	], 
 	
+	skin : [
+		createAttribute("skin_light",0,"Light Complexion", true),
+		createAttribute("skin_tan",1,"Olive Complexion", true),
+		createAttribute("skin_dark",2,"Dark Complexion", true),
+	
+	],
+	
 	cars : [
 		createAttribute("car_family",0,"Family Car", true),
 		createAttribute("car_convertible",1,"Convertible Car", true),
@@ -65,6 +73,7 @@ function getRandomColor(){
 
 function generateHuman(){
 	var humanus = {
+		skin:-1,
 		shirt:-1,
 		hair:-1,
 		pants:-1,
@@ -74,6 +83,8 @@ function generateHuman(){
 			pants:-1,
 		}
 	};
+	
+	humanus.skin = global.humanSet.skin[irandom(global.humanSetSizes.skins - 1)];
 	humanus.hair = global.humanSet.hairs[irandom(global.humanSetSizes.hairs - 1)];
 	humanus.pants = global.humanSet.pants[irandom(global.humanSetSizes.pants - 1)];
 	humanus.shirt = global.humanSet.shirts[irandom(global.humanSetSizes.shirts - 1)];
@@ -102,13 +113,37 @@ function draw_car(data, _x,_y, xscale, yscale){
 }
 
 function draw_human(data, _x,_y, xscale,yscale){
-	draw_sprite_ext(s_nakedHuman, 0,_x,_y,xscale,yscale,0,c_white,1);
+	var headSprite = 2*data.skin.sprite;
+	if(ctrl.clownAlert){
+		headSprite = data.skin.sprite + 6;
+	}
+	draw_sprite_ext(s_nakedHuman, headSprite,_x,_y,xscale,yscale,0,c_white,1);
 	draw_sprite_ext(s_hair, data.hair.sprite,_x,_y,xscale,yscale,0,data.color.hair.color,1);
-	draw_sprite_ext(s_nakedHuman, 1,_x,_y,xscale,yscale,0,c_white,1);
+	draw_sprite_ext(s_nakedHuman, 1 + 2*data.skin.sprite,_x,_y,xscale,yscale,0,c_white,1);
 	draw_sprite_ext(s_pants, data.pants.sprite,_x,_y,xscale,yscale,0,data.color.pants.color,1);
 	draw_sprite_ext(s_shirt, data.shirt.sprite,_x,_y,xscale,yscale,0,data.color.shirt.color,1);
 	if(data.shirt.name == "shirt_suit"){
 		draw_sprite_ext(s_tie, 0,_x,_y,xscale,yscale,0,c_white,1);
+	}
+}
+
+function draw_human_dancing(data, _x,_y, xscale,yscale, dancing){
+	var headSprite = 2*data.skin.sprite;
+	if(ctrl.clownAlert){
+		headSprite = data.skin.sprite + 6;
+	}
+	
+	var dancingX, dancingY;
+	dancingX = 0;
+	dancingY = (2*5/pi) * arcsin(sin((2*pi/20) * dancing));
+	
+	draw_sprite_ext(s_nakedHuman, headSprite,_x+dancingX,_y + dancingY,xscale,yscale,0,c_white,1);
+	draw_sprite_ext(s_hair, data.hair.sprite,_x+dancingX,_y + dancingY,xscale,yscale,0,data.color.hair.color,1);
+	draw_sprite_ext(s_nakedHuman, 1 + 2*data.skin.sprite,_x + dancingX,_y+ dancingY,xscale,yscale,0,c_white,1);
+	draw_sprite_ext(s_pants, data.pants.sprite,_x + dancingX,_y + dancingY,xscale,yscale,0,data.color.pants.color,1);
+	draw_sprite_ext(s_shirt, data.shirt.sprite,_x + dancingX,_y + dancingY,xscale,yscale,0,data.color.shirt.color,1);
+	if(data.shirt.name == "shirt_suit"){
+		draw_sprite_ext(s_tie, 0,_x + dancingX,_y + dancingY,xscale,yscale,0,c_white,1);
 	}
 
 }

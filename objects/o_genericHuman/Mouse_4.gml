@@ -1,4 +1,4 @@
-if(!ctrl.paused){
+if(!ctrl.paused && !ctrl.killInput){
 	if(!place_meeting(x,y,o_guestList)){
 		var match = doIMatch(id);
 

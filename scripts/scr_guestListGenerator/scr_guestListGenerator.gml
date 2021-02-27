@@ -6,7 +6,7 @@ function findGuest(){
 	with(o_genericHuman){
 		i++;
 		if(i == rand){
-			if(far_away){
+			if(location == "Back Street"){
 				if(random(1) > guest_farAwayChance){
 					count++;
 					continue;
@@ -52,6 +52,10 @@ function getFullDescriptionStruct(guest){
 	var description = {
 		done: false,
 	};
+	description.skin = {
+		color:-1,
+		description: -1,
+	};
 	description.hair = {
 		color:-1,
 		description: -1,
@@ -84,14 +88,13 @@ function getFullDescriptionStruct(guest){
 		description.hair.color = guest.data.color.hair.name;
 		description.length++;
 	}
+	
+	
+	description.skin.description = guest.data.skin;
+	description.length++;
 			
-	if(guest.id.far_away){
-		description.location.description = "Far Away";
-		description.length++;
-	} else{
-		description.location.description = "Nearby";
-		description.length++;
-	}
+	description.location.description = guest.id.location;
+	description.length++;
 			
 	switch(guest.class){
 		case "walking":{
@@ -144,6 +147,12 @@ function getDescriptionFromStruct(descriptionStruct){
 	var mustMentionHair= false;
 	var mustMentionPants = false;
 	var mustMentionCar = false;
+	
+	//Skin
+	if(descriptionStruct.skin.description != -1){
+		desc += descriptionStruct.skin.description.description + ", ";
+	}
+	
 	
 	//Hair
 	if(descriptionStruct.hair.color != -1){
@@ -217,12 +226,22 @@ function getLimitedDescriptionStruct(guest, n){
 	var struct = getFullDescriptionStruct(guest);
 	
 	while(struct.length > n){
-		var elem = choose("hair","shirt","pants","car","location","activity");
+		var elem = choose("skin", "hair","shirt","pants","car","location","activity");
+		if(elem != "skin" && struct.skin.description != -1 && random(1) < guest_skinRerollChance){
+			elem = "skin";
+		}
 		var colOrDesc = choose("color","description");
 		if(struct[$ elem][$ colOrDesc] != -1){
 			struct[$ elem][$ colOrDesc] = -1;
 			struct.length--;
 		}
+	}
+	
+	if(struct.location.description == "Far Away"){
+			if(struct.pants.description != -1 || struct.shirt.description != -1 || struct.hair.description != -1){
+				struct.location.description = -1;
+				struct.length--;
+			}
 	}
 	
 	return struct;

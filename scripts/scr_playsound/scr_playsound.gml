@@ -1,0 +1,3 @@
+function play_sound(snd, prio, loops){
+	audio_play_sound(snd,prio,loops);
+}

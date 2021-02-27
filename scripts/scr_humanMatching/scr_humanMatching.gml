@@ -27,7 +27,8 @@ function descriptionMatch(guest, descriptionStruct){
 	var res = partialMatch(guest, descriptionStruct, "hair") &&
 	partialMatch(guest, descriptionStruct, "shirt") &&
 	partialMatch(guest, descriptionStruct, "pants") &&
-	partialMatch(guest, descriptionStruct, "car");
+	partialMatch(guest, descriptionStruct, "car") && 
+	(descriptionStruct.location.description == -1 || descriptionStruct.location.description == guest.location);
 	return res;
 }
 

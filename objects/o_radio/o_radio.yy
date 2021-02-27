@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "s_nakedHuman",
-    "path": "sprites/s_nakedHuman/s_nakedHuman.yy",
+    "name": "s_radio",
+    "path": "sprites/s_radio/s_radio.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "o_genericHuman",
-    "path": "objects/o_genericHuman/o_genericHuman.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,16 +21,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_walking_left_human4","path":"objects/o_walking_left_human4/o_walking_left_human4.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"o_radio","path":"objects/o_radio/o_radio.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "humans",
-    "path": "folders/Objects/humans.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_walking_left_human4",
+  "name": "o_radio",
   "tags": [],
   "resourceType": "GMObject",
 }
