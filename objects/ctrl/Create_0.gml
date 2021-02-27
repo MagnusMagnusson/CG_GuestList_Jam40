@@ -15,3 +15,4 @@ failedClick = function(guest){
 };
 
 gamemode = noone;
+killInput = 0;
