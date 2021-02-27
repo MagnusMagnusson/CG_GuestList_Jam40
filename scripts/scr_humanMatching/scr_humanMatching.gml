@@ -28,8 +28,29 @@ function descriptionMatch(guest, descriptionStruct){
 	partialMatch(guest, descriptionStruct, "shirt") &&
 	partialMatch(guest, descriptionStruct, "pants") &&
 	partialMatch(guest, descriptionStruct, "car") && 
-	(descriptionStruct.location.description == -1 || descriptionStruct.location.description == guest.location);
+	(descriptionStruct.location.description == -1 || descriptionStruct.location.description == guest.location) &&
+	activityMatch(guest, descriptionStruct);
 	return res;
+}
+
+function activityMatch(guest, description){
+	if(description.activity.description == -1){
+		return true;
+	}
+	show_debug_message("Matching Activity");
+	show_debug_message(guest.id.class);
+	show_debug_message(description.activity.description);
+	switch(guest.id.class){
+		case "walking":{
+			return description.activity.description == "walking around";
+		}
+		case "car":{
+			return description.activity.description == "driving a car";
+		}
+		case "dancing":{
+			return description.activity.description == "dancing";
+		}
+	}
 }
 
 function partialMatch(guest, description, field){

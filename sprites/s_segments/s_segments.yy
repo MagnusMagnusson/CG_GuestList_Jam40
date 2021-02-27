@@ -183,8 +183,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4a7eeca8-e955-4a4f-91fe-b488ad8fe9f5","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Menus",
+    "path": "folders/Sprites/Menus.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_segments",

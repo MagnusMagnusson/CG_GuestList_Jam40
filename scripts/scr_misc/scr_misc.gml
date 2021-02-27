@@ -23,3 +23,11 @@ function draw_text_outlined(x, y, text, color, outline_color){
 	draw_set_color(color);
 	draw_text(x,y,text);
 }
+
+
+function showGameOver(){
+	ctrl.playing = false;
+	ctrl.paused = true;
+	layer_set_visible(layer_get_id("Results"), true);
+	o_results.x = room_width;
+}

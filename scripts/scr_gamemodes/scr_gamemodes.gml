@@ -72,12 +72,12 @@ addGameMode(GameModes.MARATHON,{
 				
 				if(ctrl.clownAlert){
 					gameName = "Longest Clown";
-					instructions = "RMB for Clown";
+					instructions = "RMB/CTRL for Clown";
 					time = "Clown Clock: " +string(displayTime)
 					stage = "STAGE CLOWN (0/1)";
 				} else{
 					gameName = "Longest List";
-					instructions = "RMB for amplifier";
+					instructions = "RMB/CTRL to magnify";
 					time = "Time: "+ string(displayTime);
 					stage = "STAGE "+ string(ctrl.stage) + "("+string(ctrl.found)+"/"+string(ceil(0.1 + ctrl.target))+")";
 				}
@@ -137,7 +137,7 @@ addGameMode(GameModes.MARATHON,{
 			
 		gameOver : function(silent){
 			if(!silent){
-				show_message("Game Over! \n You got to stage " + string(ctrl.stage) + " and invited " +string(ctrl.totalFound) + " guests! Hurrah! (Placeholder result screen)");
+				showGameOver();
 			}
 			with(o_genericHuman){
 				hspeed = baseSpeed * sign(hspeed);
@@ -145,7 +145,6 @@ addGameMode(GameModes.MARATHON,{
 			ctrl.paused = true;
 			ctrl.playing = false;
 			ctrl.gamemode = -4;
-			layer_set_visible(layer_get_id("MainMenu"),true);
 		}
 	}
 );

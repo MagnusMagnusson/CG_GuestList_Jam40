@@ -1,10 +1,10 @@
 function marathon_getStageList(stage){
 	var ratio = [
-		20 - stage,
+		20 - 2*stage,
 		10 + stage,
 		0 + 2*stage,
-		-5 + 1.75 * stage,
-		-10 + 1.75 * stage,
+		-5 + 1.5 * stage,
+		-10 + 1.5 * stage,
 		-15 + 1.5 * stage,
 		-30 + 2 * stage,
 		-40 + 3 * stage

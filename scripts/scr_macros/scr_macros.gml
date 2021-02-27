@@ -3,3 +3,4 @@
 #macro crimsonRed $5800E4
 #macro nightBlue $660000
 #macro hud_width 1057
+#macro hatChance 0.05

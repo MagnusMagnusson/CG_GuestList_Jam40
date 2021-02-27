@@ -52,6 +52,10 @@ function getFullDescriptionStruct(guest){
 	var description = {
 		done: false,
 	};
+	description.hat = {
+		color:-1,
+		description: -1,
+	};
 	description.skin = {
 		color:-1,
 		description: -1,
@@ -84,6 +88,25 @@ function getFullDescriptionStruct(guest){
 	
 	description.length = 0;
 				
+				
+	switch(guest.id.class){
+		case "walking": {
+				description.length++;
+			description.activity.description = "walking around";
+			break;
+		}
+		case "car": {
+				description.length++;
+			description.activity.description = "driving a car";
+			break;
+		}
+		case "dancing": {
+				description.length++;
+			description.activity.description = "dancing";
+			break;
+		}
+	}
+	
 	if(access_colorCanBeMatched(guest.data.color.hair.name, "hair")){
 		description.hair.color = guest.data.color.hair.name;
 		description.length++;
@@ -95,6 +118,17 @@ function getFullDescriptionStruct(guest){
 			
 	description.location.description = guest.id.location;
 	description.length++;
+	
+
+	if(guest.data.hat.canBeMatched){
+		description.hat.description = guest.data.hat;
+		description.length++;
+	}
+			
+	if(access_colorCanBeMatched(guest.data.color.hat.name, "hair")){
+		description.hat.color = guest.data.color.hat.name;
+		description.length++;
+	}
 			
 	switch(guest.class){
 		case "walking":{
@@ -147,6 +181,7 @@ function getDescriptionFromStruct(descriptionStruct){
 	var mustMentionHair= false;
 	var mustMentionPants = false;
 	var mustMentionCar = false;
+	var mustMentionHat = false;
 	
 	//Skin
 	if(descriptionStruct.skin.description != -1){
@@ -167,6 +202,21 @@ function getDescriptionFromStruct(descriptionStruct){
 	
 	if(mustMentionHair){
 		desc += "hair, "
+	}
+	
+		//Hat
+	if(descriptionStruct.hat.color != -1){
+		desc += descriptionStruct.hat.color+ " ";
+		mustMentionHair = true;
+	}
+	
+	if(descriptionStruct.hat.description != -1){
+		desc += descriptionStruct.hat.description.description + " ";
+		mustMentionHair = true;
+	}
+	
+	if(mustMentionHair){
+		desc += "hat, "
 	}
 	
 	//Shirt
@@ -210,6 +260,13 @@ function getDescriptionFromStruct(descriptionStruct){
 		mustMentionCar = false;
 	}
 	
+			//ACtivity
+	
+	if(descriptionStruct.activity.description != -1){
+		desc += "is "+descriptionStruct.activity.description+",";
+	}
+	
+	
 	if(mustMentionCar){
 		desc += "Car, "
 	}
@@ -235,13 +292,6 @@ function getLimitedDescriptionStruct(guest, n){
 			struct[$ elem][$ colOrDesc] = -1;
 			struct.length--;
 		}
-	}
-	
-	if(struct.location.description == "Far Away"){
-			if(struct.pants.description != -1 || struct.shirt.description != -1 || struct.hair.description != -1){
-				struct.location.description = -1;
-				struct.length--;
-			}
 	}
 	
 	return struct;
