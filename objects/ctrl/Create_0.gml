@@ -4,6 +4,7 @@ stage = 1;
 paused = true;
 playing = false;
 magnifierSurface = -1;
+load_highScores();
 
 guestList = new Array();
 

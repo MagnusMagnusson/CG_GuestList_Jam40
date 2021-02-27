@@ -18,7 +18,7 @@ addGameMode(GameModes.MARATHON,{
 		setup : function(){
 			with(ctrl){
 				surf_night = noone;
-				timer = 60;
+				timer = 5;
 				stage = 1;
 				totalFound = 0;
 				countdown = 3;
@@ -136,15 +136,52 @@ addGameMode(GameModes.MARATHON,{
 		},
 			
 		gameOver : function(silent){
+			
 			if(!silent){
+				var result = marathonHighscore();
+				save_highScores();
 				showGameOver();
+				o_results.bigText = "You got to stage " +string(ctrl.stage) + " and invited " + string(ctrl.totalFound) + " guests!";
+				switch(result){
+					case -1:{
+						o_results.highScoreText = "A valiant effort!";
+						break;
+					}
+					case 0:{
+						o_results.highScoreText = "That's equal to your personal best!";
+						break;
+					}
+					case 1:{
+						if(ctrl.stage < MetaThreshold_lower){
+							save_meta(0);
+						} else{
+							if(ctrl.stage < MetaThreshold_higher){
+								save_meta(1);
+							} else{
+								save_meta(2);
+							}
+						}
+						o_results.highScoreText = "A NEW PERSONAL BEST!";
+						break;
+					}
+				}
+				if(ctrl.stage < MetaThreshold_lower){
+					o_results.commentary = "That's nice. However, we were kind of hoping for a bigger turnout. Won't you try again and see if you can't at least make it to stage 10?";
+				} else {
+					if(ctrl.stage < MetaThreshold_higher){
+						o_results.commentary = "That's great! There are plenty of people here. However, can you make it the biggest party that's ever been? See if you can't make it to stage 20.";
+					} else{
+						o_results.commentary = "Incredilbe! We knew we could count on you! Go on, the Crimson party is waiting for it's guest of honour! (Assuming you've played all the other Guild Games). See you there!";
+					}
+				}
+			} else{
+				ctrl.gamemode = -4;
 			}
 			with(o_genericHuman){
 				hspeed = baseSpeed * sign(hspeed);
 			}
 			ctrl.paused = true;
 			ctrl.playing = false;
-			ctrl.gamemode = -4;
 		}
 	}
 );

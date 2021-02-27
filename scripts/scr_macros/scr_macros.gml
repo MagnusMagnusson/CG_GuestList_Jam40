@@ -1,6 +1,8 @@
 #macro guest_farAwayChance 0.15
 #macro guest_skinRerollChance 1/5
 #macro crimsonRed $5800E4
-#macro nightBlue $660000
 #macro hud_width 1057
-#macro hatChance 0.05
+#macro hatChance 0.1
+
+#macro MetaThreshold_lower 10
+#macro MetaThreshold_higher 20

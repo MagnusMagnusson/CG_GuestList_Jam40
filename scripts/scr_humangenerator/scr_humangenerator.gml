@@ -92,9 +92,9 @@ function generateHuman(){
 	};
 	
 	if(random(1) < hatChance){
-		humanus.hat = global.humanSet.hats[0];
-	} else{
 		humanus.hat = global.humanSet.hats[1];
+	} else{
+		humanus.hat = global.humanSet.hats[0];
 	}
 	humanus.skin = global.humanSet.skin[irandom(global.humanSetSizes.skins - 1)];
 	humanus.hair = global.humanSet.hairs[irandom(global.humanSetSizes.hairs - 1)];

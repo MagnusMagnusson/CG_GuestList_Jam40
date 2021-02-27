@@ -207,15 +207,15 @@ function getDescriptionFromStruct(descriptionStruct){
 		//Hat
 	if(descriptionStruct.hat.color != -1){
 		desc += descriptionStruct.hat.color+ " ";
-		mustMentionHair = true;
+		mustMentionHat = true;
 	}
 	
 	if(descriptionStruct.hat.description != -1){
 		desc += descriptionStruct.hat.description.description + " ";
-		mustMentionHair = true;
+		mustMentionHat = false;
 	}
 	
-	if(mustMentionHair){
+	if(mustMentionHat){
 		desc += "hat, "
 	}
 	
@@ -283,7 +283,7 @@ function getLimitedDescriptionStruct(guest, n){
 	var struct = getFullDescriptionStruct(guest);
 	
 	while(struct.length > n){
-		var elem = choose("skin", "hair","shirt","pants","car","location","activity");
+		var elem = choose("skin", "hair","shirt","pants","car","location","activity", "hat");
 		if(elem != "skin" && struct.skin.description != -1 && random(1) < guest_skinRerollChance){
 			elem = "skin";
 		}
