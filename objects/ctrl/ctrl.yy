@@ -19,11 +19,8 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":32,"eventType":9,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":71,"eventType":9,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":39,"eventType":9,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":37,"eventType":9,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"ctrl","path":"objects/ctrl/ctrl.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],

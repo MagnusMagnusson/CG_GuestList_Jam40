@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "LogicGenerators",
-    "path": "folders/Scripts/LogicGenerators.yy",
+    "name": "Gamemodes",
+    "path": "folders/Scripts/Gamemodes.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_humanMatching",
+  "name": "scr_gamemodes",
   "tags": [],
   "resourceType": "GMScript",
 }
