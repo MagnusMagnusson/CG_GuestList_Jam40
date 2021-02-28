@@ -61,7 +61,7 @@ function marathonGameMode(){
 		setup : function(){
 			with(ctrl){
 				surf_night = noone;
-				timer = 5;
+				timer = 60;
 				stage = 1;
 				totalFound = 0;
 				countdown = 3;

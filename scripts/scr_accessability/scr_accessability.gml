@@ -52,14 +52,14 @@ global.accessibility = {
 	colors:{
 		list: new Array(),
 		canBeMatchedSettings : {
-			hair : accessability_colorMatch.ALL,
-			shirt : accessability_colorMatch.ALL,
-			pants : accessability_colorMatch.ALL,
-			car: accessability_colorMatch.ALL
+			hair : accessability_colorMatch.UNIQUE,
+			shirt : accessability_colorMatch.UNIQUE,
+			pants : accessability_colorMatch.UNIQUE,
+			car: accessability_colorMatch.UNIQUE
 		}
 	},
 	text:{
-		font: "consolas",
+		font: "dubai",
 		fontSize: 14,
 	},
 	movement:{

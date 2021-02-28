@@ -1,9 +1,10 @@
 var height = max(y + sprite_height,15+ y + string_height_ext(text,20,sprite_width - 15))
 
+access_getFont();
 draw_set_color(c_maroon);
 draw_set_alpha(0.5);
 draw_rectangle(x,y,x + sprite_width,height,false);
-
+draw_reset();
 
 draw_set_color(c_black);
 for(var i = -1; i < 2; i++){

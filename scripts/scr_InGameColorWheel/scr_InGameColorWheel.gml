@@ -1,6 +1,6 @@
 function ColorWheel_open(_x,_y,layer, size, frame, defaultColor, increment, draggable, onChangeColor){
 	ColorWheel_close();
-	var o = instance_create_layer(_x,_y,layer,o_InGameColorWheel);
+	var o = instance_create_depth(_x,_y,-9999,o_InGameColorWheel);
 	o.size = size;
 	o.frame = frame;
 

@@ -1,6 +1,6 @@
 c = "brown"
 
-text = "Unique";
+text = "Distinct";
 image_index = global.accessibility.colors[$ c].unique;
 action = function(){
 	image_index = !global.accessibility.colors[$ c].unique;

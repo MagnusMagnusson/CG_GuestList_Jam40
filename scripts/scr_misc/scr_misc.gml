@@ -24,6 +24,18 @@ function draw_text_outlined(x, y, text, color, outline_color){
 	draw_text(x,y,text);
 }
 
+function draw_text_outlined_ext(x, y, text, color, outline_color,s,w){
+	draw_set_color(outline_color);
+	for(var i = -1; i < 2; i++){
+		for(var j = -1; j < 2; j++){
+			draw_text_ext(x+i,y+j,text,s,w);
+		}
+	}
+	draw_set_color(color);
+	draw_text_ext(x,y,text,s,w);
+}
+
+
 
 function showGameOver(){
 	ctrl.playing = false;

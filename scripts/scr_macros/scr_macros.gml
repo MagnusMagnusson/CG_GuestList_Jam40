@@ -5,4 +5,4 @@
 #macro hatChance 0.1
 
 #macro MetaThreshold_lower 10
-#macro MetaThreshold_higher 20
+#macro MetaThreshold_higher 15

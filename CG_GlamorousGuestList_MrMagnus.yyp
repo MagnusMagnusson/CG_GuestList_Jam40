@@ -31,6 +31,7 @@
     {"id":{"name":"o_confetti","path":"objects/o_confetti/o_confetti.yy",},"order":4,},
     {"id":{"name":"snd_crimson","path":"sounds/snd_crimson/snd_crimson.yy",},"order":2,},
     {"id":{"name":"o_results","path":"objects/o_results/o_results.yy",},"order":3,},
+    {"id":{"name":"o_text","path":"objects/o_text/o_text.yy",},"order":10,},
     {"id":{"name":"o_radio","path":"objects/o_radio/o_radio.yy",},"order":5,},
     {"id":{"name":"s_segments","path":"sprites/s_segments/s_segments.yy",},"order":2,},
     {"id":{"name":"scr_save","path":"scripts/scr_save/scr_save.yy",},"order":9,},
