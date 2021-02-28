@@ -216,12 +216,12 @@ function marathonGameMode(){
 					}
 				}
 				if(ctrl.stage < MetaThreshold_lower){
-					o_results.commentary = "That's nice. However, we were kind of hoping for a bigger turnout. Won't you try again and see if you can't at least make it to stage 10?";
+					o_results.commentary = "That's nice. However, we were kind of hoping for a bigger turnout. Won't you try again and see if you can't at least make it to stage "+string(MetaThreshold_lower)+"?";
 				} else {
 					if(ctrl.stage < MetaThreshold_higher){
-						o_results.commentary = "That's great! There are plenty of people here. However, can you make it the biggest party that's ever been? See if you can't make it to stage 20.";
+						o_results.commentary = "That's great! There are plenty of people here. However, can you make it the biggest party that's ever been? See if you can't make it to stage "+string(MetaThreshold_higher)+".";
 					} else{
-						o_results.commentary = "Incredilbe! We knew we could count on you! Go on, the Crimson party is waiting for it's guest of honour! (Assuming you've played all the other Guild Games). See you there!";
+						o_results.commentary = "incredible! We knew we could count on you! Go on, the Crimson party is waiting for it's guest of honour! (Assuming you've played all the other Guild Games). See you there!";
 					}
 				}
 			} else{
