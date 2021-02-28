@@ -78,6 +78,9 @@ function marathonGameMode(){
 				if(timer <= 0){
 					gameOver(false);
 				}
+				if(timer < 10 && floor(timer) < floor(timer + 1/room_speed)){
+					play_sound(snd_one_note,10,false);
+				}
 			}
 		},
 			

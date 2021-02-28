@@ -1,4 +1,3 @@
-init_options();
 
 if(!global.options.skip_splash){
 	timer = 0;

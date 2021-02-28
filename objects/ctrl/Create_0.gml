@@ -7,7 +7,8 @@ magnifierSurface = -1;
 load_highScores();
 
 guestList = new Array();
-
+beatCounter = 0;
+off = 0;
 
 successClick = function(guest, pos){
 	gamemode.successClick(guest, pos);
@@ -23,3 +24,5 @@ gameOver = function(silent){
 gamemode = noone;
 killInput = 0;
 clownAlert = false;
+
+alarm[0] = 5;
