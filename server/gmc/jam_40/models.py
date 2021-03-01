@@ -12,7 +12,7 @@ class Attempt(models.Model):
     id = models.AutoField(primary_key=True)
     player = models.ForeignKey('Person', null = False, on_delete = models.CASCADE)
     score = models.FloatField(null = False)
-    subscore = models.FloatField(null = True)
+    subscore = models.FloatField(null = False, default = 0)
     attemptNr = models.IntegerField(null = False)
     date = models.DateTimeField()
     gamemode = models.CharField(max_length=30)
@@ -48,11 +48,11 @@ class Attempt(models.Model):
     def statistics(gamemode):
         a = Attempt.objects.all().filter(gamemode = gamemode)
 
-        avg = a.aggregate(Avg('score'))
-        max = a.aggregate(Max('score'))
-        min = a.aggregate(Min('score'))
+        avg = a.aggregate(Avg('score'))['score__avg']
+        max = a.aggregate(Max('score'))['score__max']
+        min = a.aggregate(Min('score'))['score__min']
         count = len(a)
-        med = a[int(math.floor(count / 2))].score
+        med = a[int(math.floor(count / 2))].score if count > 0 else 0
 
         return {
             "avg": avg,

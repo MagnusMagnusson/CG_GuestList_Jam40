@@ -7,6 +7,7 @@ action = function(){
 	layer_set_visible(layer_get_id("your_results"), false);
 	layer_set_visible(layer_get_id("your_statistics"), false);
 	layer_set_visible(layer_get_id("MainMenu"), true);
+	o_networker.alarm[0] = 5;
 	inst_92F7B3F.prepared = false;
 	inst_1D977E5E.prepared = false;
 } 

@@ -1,5 +1,6 @@
 if(playing && !paused){
 	gamemode.tick();
+	o_results.gamemode = "";
 }
 
 if(killInput > 0){

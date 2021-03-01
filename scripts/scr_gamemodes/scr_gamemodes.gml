@@ -15,7 +15,7 @@ var addGameMode = function(gamemode, struct){
 }
 
 addGameMode(GameModes.MARATHON,marathonGameMode());
-addGameMode(GameModes.FASTHOST_10,new fastestHostGameMode(2));
+addGameMode(GameModes.FASTHOST_10,new fastestHostGameMode(10));
 addGameMode(GameModes.FASTHOST_25,new fastestHostGameMode(25));
 addGameMode(GameModes.FASTHOST_50,new fastestHostGameMode(50));
 

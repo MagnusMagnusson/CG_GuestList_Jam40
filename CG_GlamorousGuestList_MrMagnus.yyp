@@ -76,6 +76,7 @@
     {"id":{"name":"o_gradientBar","path":"objects/o_gradientBar/o_gradientBar.yy",},"order":1,},
     {"id":{"name":"s_tie","path":"sprites/s_tie/s_tie.yy",},"order":6,},
     {"id":{"name":"rm_accessibility","path":"rooms/rm_accessibility/rm_accessibility.yy",},"order":1,},
+    {"id":{"name":"o_statistics","path":"objects/o_statistics/o_statistics.yy",},"order":1,},
     {"id":{"name":"s_gameover","path":"sprites/s_gameover/s_gameover.yy",},"order":3,},
     {"id":{"name":"o_note","path":"objects/o_note/o_note.yy",},"order":5,},
     {"id":{"name":"o_InGameColorWheel","path":"objects/o_InGameColorWheel/o_InGameColorWheel.yy",},"order":0,},

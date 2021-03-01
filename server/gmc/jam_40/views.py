@@ -43,7 +43,7 @@ def attempt(request):
         gamemode = request.GET['gamemode']
         sortFunction = None
         if gamemode == 'marathon':
-            sortFunction = lambda a : (10000  * a.score) + a.subscore
+            sortFunction = lambda a : (10000  * a.score) + (a.subscore if a.subscore else 0)
         return JsonResponse({"recent":Attempt.recent(gamemode), "top":Attempt.top(gamemode, sortFunction)})
     return JsonResponse({})
 

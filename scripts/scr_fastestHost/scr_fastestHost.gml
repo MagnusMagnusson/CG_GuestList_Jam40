@@ -13,6 +13,7 @@ function fastestHostGameMode(n) constructor{
 		static setup = function(){
 			with(ctrl){
 				timer = 0;
+				ticker = 0;
 				found = 0;
 				countdown = 3;
 				paused = false;
@@ -25,6 +26,7 @@ function fastestHostGameMode(n) constructor{
 			
 		static tick = function(){
 			with(ctrl){
+				ticker++;
 				timer += 1/room_speed;
 			}
 		};
@@ -63,6 +65,7 @@ function fastestHostGameMode(n) constructor{
 			
 		static successClick = function(guest, pos){
 			with(ctrl){
+				ticker = 0;
 				guestList.remove(pos);
 				found++;
 				killInput = 3;
@@ -93,7 +96,8 @@ function fastestHostGameMode(n) constructor{
 			ctrl.timer++;
 		};
 			
-		static gameOver = function(silent){
+		static gameOver = function(silent){ 
+			ctrl.ticker = 0;
 			if(!silent){
 				var result = fastestHostHighScore(_n);
 				save_highScores();
@@ -138,7 +142,7 @@ function fastestHostHighScore(n){
 		date : date_current_datetime()
 	}
 	ctrl.highScores.attempts[$ "fastest_"+string(n)][attempts] = attempt;
-				
+		network_submitAttempt("fastest_"+string(n),attempts + 1, ctrl.timer, 0);
 	var bestAttempt = ctrl.highScores.bestAttempt[$ "fastest_"+string(n)];
 	if(bestAttempt == -1){
 		ctrl.highScores.bestAttempt[$ "fastest_"+string(n)] = attempts;

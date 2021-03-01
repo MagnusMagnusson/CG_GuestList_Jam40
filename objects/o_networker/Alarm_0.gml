@@ -1,0 +1,1 @@
+o_online_scoreboard.alarm[0] = 1;

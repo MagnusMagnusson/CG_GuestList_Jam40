@@ -65,6 +65,10 @@ function network_getHighscores(gamemode, callback){
 	fetch(global.networking.address + "/jam40/attempt?gamemode="+gamemode, callback);
 }
 
+function network_getStatistics(gamemode, callback){
+	fetch(global.networking.address + "/jam40/attempt/stats?gamemode="+gamemode, callback);
+}
+
 function boilerPlateHeaders(){
 	var map = ds_map_create();
 	ds_map_add(map, "Connection", "close");

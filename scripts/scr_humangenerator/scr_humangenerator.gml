@@ -125,9 +125,9 @@ function generateCar(){
 }
 
 function draw_car(data, _x,_y, xscale, yscale){
-	draw_human(data, _x + 50*xscale, _y - 40*yscale,-xscale*0.8,0.8*yscale);
-	draw_sprite_ext(s_car_bodies, data.car.sprite,_x,_y,xscale,yscale,0,data.color.car.color,1);
-	draw_sprite_ext(s_car_parts, data.car.sprite,_x,_y,xscale,yscale,0,c_white,1);
+	draw_human(data, _x + 30*xscale, _y - 7*yscale,-xscale*0.8,0.8*yscale);
+	draw_sprite_ext(s_car_bodies, data.car.sprite,_x,_y,xscale,yscale,0,data.color.car.color,image_alpha);
+	draw_sprite_ext(s_car_parts, data.car.sprite,_x,_y,xscale,yscale,0,c_white,image_alpha);
 }
 
 function draw_human(data, _x,_y, xscale,yscale){
@@ -135,20 +135,20 @@ function draw_human(data, _x,_y, xscale,yscale){
 	if(ctrl.clownAlert){
 		headSprite = data.skin.sprite + 6;
 	}
-	draw_sprite_ext(s_nakedHuman, headSprite,_x,_y,xscale,yscale,0,c_white,1);
-	draw_sprite_ext(s_hair, data.hair.sprite,_x,_y,xscale,yscale,0,data.color.hair.color,1);
-	draw_sprite_ext(s_nakedHuman, 1 + 2*data.skin.sprite,_x,_y,xscale,yscale,0,c_white,1);
-	draw_sprite_ext(s_pants, data.pants.sprite,_x,_y,xscale,yscale,0,data.color.pants.color,1);
-	draw_sprite_ext(s_shirt, data.shirt.sprite,_x,_y,xscale,yscale,0,data.color.shirt.color,1);
+	draw_sprite_ext(s_nakedHuman, headSprite,_x,_y,xscale,yscale,0,c_white,image_alpha);
+	draw_sprite_ext(s_hair, data.hair.sprite,_x,_y,xscale,yscale,0,data.color.hair.color,image_alpha);
+	draw_sprite_ext(s_nakedHuman, 1 + 2*data.skin.sprite,_x,_y,xscale,yscale,0,c_white,image_alpha);
+	draw_sprite_ext(s_pants, data.pants.sprite,_x,_y,xscale,yscale,0,data.color.pants.color,image_alpha);
+	draw_sprite_ext(s_shirt, data.shirt.sprite,_x,_y,xscale,yscale,0,data.color.shirt.color,image_alpha);
 	var hatColor;
 	if(data.color.hat == -1){
 		hatColor = c_white;
 	} else{
 		hatColor = data.color.hat.color;
 	}
-	draw_sprite_ext(s_hat, data.hat.sprite,_x,_y,xscale,yscale,0,hatColor,1);
+	draw_sprite_ext(s_hat, data.hat.sprite,_x,_y,xscale,yscale,0,hatColor,image_alpha);
 	if(data.shirt.name == "shirt_suit"){
-		draw_sprite_ext(s_tie, 0,_x,_y,xscale,yscale,0,c_white,1);
+		draw_sprite_ext(s_tie, 0,_x,_y,xscale,yscale,0,c_white,image_alpha);
 	}
 }
 

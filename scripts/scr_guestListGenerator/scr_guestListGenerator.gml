@@ -84,6 +84,7 @@ function getFullDescriptionStruct(guest){
 		description: -1,
 		color: -1,
 	};
+	description.target = guest;
 	description.isCar = guest.id.class == "car";
 	
 	description.length = 0;
@@ -260,6 +261,9 @@ function getDescriptionFromStruct(descriptionStruct){
 		mustMentionCar = false;
 	}
 	
+	if(mustMentionCar){
+		desc += "Car, "
+	}
 			//ACtivity
 	
 	if(descriptionStruct.activity.description != -1){
@@ -267,9 +271,6 @@ function getDescriptionFromStruct(descriptionStruct){
 	}
 	
 	
-	if(mustMentionCar){
-		desc += "Car, "
-	}
 		
 	//Location
 	if(descriptionStruct.location.description != -1){

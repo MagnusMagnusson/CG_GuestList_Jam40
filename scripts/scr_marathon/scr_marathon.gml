@@ -60,6 +60,7 @@ function marathonGameMode(){
 	return {
 		setup : function(){
 			with(ctrl){
+				ticker = 0;
 				surf_night = noone;
 				timer = 60;
 				stage = 1;
@@ -74,6 +75,7 @@ function marathonGameMode(){
 			
 		tick : function(){
 			with(ctrl){
+				ticker++;
 				timer-= 1/room_speed;
 				if(timer <= 0){
 					gameOver(false);
@@ -141,6 +143,7 @@ function marathonGameMode(){
 			
 		successClick : function(guest, pos){
 			with(ctrl){
+				ticker = 0;
 				timer += 5;
 				guestList.get(pos).done = true;
 				found++;
@@ -182,7 +185,7 @@ function marathonGameMode(){
 		},
 			
 		gameOver : function(silent){
-			
+			ctrl.ticker = 0;
 			if(!silent){
 				var result = marathonHighscore();
 				save_highScores();

@@ -53,6 +53,8 @@ function Array() constructor {
 		return self;
 	}
 	
+	
+	
 	///@function	concat(other)
 	///@description	Adds every element of the second array to this array
 	///@param		{Array/array} other
