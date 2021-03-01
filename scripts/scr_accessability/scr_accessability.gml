@@ -49,6 +49,7 @@ addFont("opendyslexic",18,OpenDyslexic_18);
 show_debug_message(global.fonts);
 
 global.accessibility = {
+	version : VERSION,
 	colors:{
 		list: new Array(),
 		canBeMatchedSettings : {

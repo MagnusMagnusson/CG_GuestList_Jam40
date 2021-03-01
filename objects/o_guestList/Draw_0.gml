@@ -4,9 +4,15 @@ if(!ctrl.paused){
 	draw_set_color(0);
 
 	if(!ctrl.clownAlert){
-		h = 0;
+		h = 20;
+		draw_text(x + 10, y + 70, "Mouse wheel to scroll!");
 		ctrl.guestList.forEach(function(elem, pos){
-			var yPos = y + 70 + h + 15*pos;
+			if(pos < offset){
+				return 0;
+			}
+			var truePos = pos - offset;
+			
+			var yPos = y + 70 + h + 15*truePos;
 	
 			var desc = getDescriptionFromStruct(elem);
 			var text = string(1+pos) + ". " + desc;
@@ -21,7 +27,7 @@ if(!ctrl.paused){
 			if(elem.done){
 				draw_set_color(c_gray);
 			}
-			draw_text_ext(x + 10, yPos, string(1+pos) + ". " + desc, sep, w);
+			draw_text_ext(x + 10, yPos, text, sep, w);
 			h += 15 + string_height(text) * (tHeight)
 		});
 	} else{

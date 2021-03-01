@@ -4,10 +4,10 @@ marathonList = {
 }
 
 stats = {
-	marathon:{},
-	fastest_10:{},
-	fastest_25: {},
-	fastest_50: {}
+	marathon:-1,
+	fastest_10:-1,
+	fastest_25: -1,
+	fastest_50: -1
 }
 
 alarm[0] = 5;

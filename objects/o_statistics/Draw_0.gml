@@ -1,4 +1,4 @@
-if(o_results.gamemode !=  "" && global.networking.status = networkstatus.connected){
+if(o_results.gamemode !=  "" && global.networking.status = networkstatus.connected  && o_online_scoreboard.stats[$ o_results.gamemode] != -1 && o_online_scoreboard.stats[$ o_results.gamemode].count != 0){
 	draw_set_color(c_black);
 	draw_text(x,y,"Global Statistics!")
 	draw_text(x,y + 20*1, "Attempts made: "+ string(o_online_scoreboard.stats[$ o_results.gamemode].count));
@@ -7,10 +7,8 @@ if(o_results.gamemode !=  "" && global.networking.status = networkstatus.connect
 	draw_text(x,y + 20*4, "Highest Score: "+ string(o_online_scoreboard.stats[$ o_results.gamemode].max));
 	draw_text(x,y + 20*5, "Lowest Score: "+ string(o_online_scoreboard.stats[$ o_results.gamemode].min));
 } else{
-	draw_text(x,y + 50, "["+o_results.gamemode + "] - ");
 	draw_text(x,y,"Global Statistics!");
 	draw_text(x,y + 20*1, "Can't Display Global Statistics");
-
 }
 
 var xOff;

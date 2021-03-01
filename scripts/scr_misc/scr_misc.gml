@@ -38,6 +38,7 @@ function draw_text_outlined_ext(x, y, text, color, outline_color,s,w){
 
 
 function showGameOver(){
+		inst_286BCCA7.visible = true;
 	ctrl.playing = false;
 	ctrl.paused = true;
 	layer_set_visible(layer_get_id("il_results"), true);

@@ -99,6 +99,7 @@
     {"id":{"name":"o_networker","path":"objects/o_networker/o_networker.yy",},"order":10,},
     {"id":{"name":"o_car","path":"objects/o_car/o_car.yy",},"order":4,},
     {"id":{"name":"o_genericHuman","path":"objects/o_genericHuman/o_genericHuman.yy",},"order":0,},
+    {"id":{"name":"Sprite28","path":"sprites/Sprite28/Sprite28.yy",},"order":4,},
     {"id":{"name":"s_portal","path":"sprites/s_portal/s_portal.yy",},"order":3,},
     {"id":{"name":"s_car_parts","path":"sprites/s_car_parts/s_car_parts.yy",},"order":5,},
     {"id":{"name":"s_checkbox","path":"sprites/s_checkbox/s_checkbox.yy",},"order":0,},

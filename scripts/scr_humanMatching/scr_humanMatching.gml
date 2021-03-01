@@ -29,8 +29,13 @@ function descriptionMatch(guest, descriptionStruct){
 	partialMatch(guest, descriptionStruct, "pants") &&
 	partialMatch(guest, descriptionStruct, "car") && 
 	(descriptionStruct.location.description == -1 || descriptionStruct.location.description == guest.location) &&
+	skinMatch(guest,descriptionStruct) &&
 	activityMatch(guest, descriptionStruct);
 	return res;
+}
+
+function skinMatch(guest, description){
+	return description.skin.description == -1 || (description.skin.description == guest.me.skin);
 }
 
 function activityMatch(guest, description){

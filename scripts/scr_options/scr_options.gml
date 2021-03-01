@@ -17,7 +17,7 @@ global.options = {
 	skip_splash : false,
 	skip_accessibility : false,
 	userKey : randomString(16),
-	version : "0.3.01"
+	version : VERSION
 }
 
 
@@ -29,13 +29,14 @@ function init_options(){
 		save_options("options", global.options);
 	}
 	
+	audio_master_gain(global.options.master_volume);
 	window_set_fullscreen(global.options.fullscreen);
 	init_accessibility();
 }
 
 function init_accessibility(){
 	var options = load_options("accessibility");
-	if(options != false){
+	if(options != false && (!is_undefined(options[$ "version"]) && options.version == global.options.version)){
 		global.accessibility = options;
 		show_debug_message(global.accessibility.colors);
 		global.accessibility.colors.list = array_to_Array(global.accessibility.colors.list.content);

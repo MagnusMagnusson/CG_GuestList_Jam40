@@ -34,7 +34,7 @@ class Attempt(models.Model):
 
     @staticmethod
     def recent(gamemode):
-        a = [x for x in Attempt.objects.all().filter(gamemode = gamemode).order_by("date")]
+        a = [x for x in Attempt.objects.all().filter(gamemode = gamemode).order_by("-date")]
         a = a[:25]
         return [{
             "player": x.player.name + " ["+x.player.salt+"]",
