@@ -1,3 +1,12 @@
+function randomString(n){
+	var r = "";
+	var p = "qwertyuyiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
+	for(var i = 0; i < n; i++){
+		r += string(string_char_at(p, irandom(string_length(p) - 1)));
+	}
+	return r;
+}
+
 global.options = {
 	fullscreen : false,
 	play_sounds : true,
@@ -7,12 +16,14 @@ global.options = {
 	master_volume : 1,
 	skip_splash : false,
 	skip_accessibility : false,
+	userKey : randomString(16),
+	version : "0.3.01"
 }
 
 
 function init_options(){
 	var options = load_options("options");
-	if(options != false){
+	if(options != false && (!is_undefined(options[$ "version"]) && options.version == global.options.version)){
 		global.options = options;
 	} else {
 		save_options("options", global.options);

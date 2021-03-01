@@ -6,3 +6,7 @@
 
 #macro MetaThreshold_lower 10
 #macro MetaThreshold_higher 15
+
+#macro DEVSERVER "http://localhost:8080"
+#macro PRODSERVER "https://gmcjam.mmagnusson.net"
+#macro isProd false

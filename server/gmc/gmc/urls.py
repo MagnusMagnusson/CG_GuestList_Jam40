@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import JsonResponse
+from jam_40 import views as jam40
+
+def ping(request):
+    return JsonResponse({"result":True})
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('ping', ping),
+    path('jam40/player', jam40.player ),
+    path('jam40/attempt/stats', jam40.attemptStat ),
+    path('jam40/attempt', jam40.attempt ),
 ]

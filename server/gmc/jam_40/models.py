@@ -1,15 +1,64 @@
 from django.db import models
+from django.db.models import Avg
+from django.db.models import Max, Min
+from django.db.models import Count
+import math
 
-# Create your models here.
-class Player(model.Models):
-    name = models.CharField(max_lenght = 30)
+class Person(models.Model):
+    name = models.CharField(max_length = 30)
     key = models.CharField(primary_key = True, max_length = 128)
 
-class Attempt(model.Models):
+class Attempt(models.Model):
     id = models.AutoField(primary_key=True)
-    player = models.ForeignKey(Player, null = False)
+    player = models.ForeignKey('Person', null = False, on_delete = models.CASCADE)
     score = models.FloatField(null = False)
     subscore = models.FloatField(null = True)
     attemptNr = models.IntegerField(null = False)
-    date = models.DateField()
+    date = models.DateTimeField()
+    gamemode = models.CharField(max_length=30)
+
+    @staticmethod
+    def top(gamemode, sortfunction):
+        a = [x for x in Attempt.objects.all().filter(gamemode = gamemode)]
+        a = sorted(a,key = sortfunction, reverse=True)
+        a = a[:25]
+        return [{
+            "player": x.player.name,
+            "_score" : x.score,
+            "subscore" : x.subscore,
+            "attemptNr" : x.attemptNr,
+            "date": x.date,
+            "gamemode": x.gamemode
+        } for x in a]
+
+    @staticmethod
+    def recent(gamemode):
+        a = [x for x in Attempt.objects.all().filter(gamemode = gamemode).order_by("date")]
+        a = a[:25]
+        return [{
+            "player": x.player.name,
+            "_score" : x.score,
+            "subscore" : x.subscore,
+            "attemptNr" : x.attemptNr,
+            "date": x.date,
+            "gamemode": x.gamemode
+        } for x in a]
+
+    @staticmethod
+    def statistics(gamemode):
+        a = Attempt.objects.all().filter(gamemode = gamemode)
+
+        avg = a.aggregate(Avg('score'))
+        max = a.aggregate(Max('score'))
+        min = a.aggregate(Min('score'))
+        count = len(a)
+        med = a[int(math.floor(count / 2))].score
+
+        return {
+            "avg": avg,
+            "max": max,
+            "min": min,
+            "count": count,
+            "med": med
+        }
 

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Gamemodes",
-    "path": "folders/Scripts/Gamemodes.yy",
+    "name": "Networking",
+    "path": "folders/Scripts/Networking.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_collectTheGuest",
+  "name": "scr_networking_core",
   "tags": [],
   "resourceType": "GMScript",
 }

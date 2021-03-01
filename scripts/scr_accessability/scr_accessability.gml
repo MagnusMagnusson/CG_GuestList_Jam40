@@ -123,6 +123,10 @@ function access_setFont(font){
 	global.accessibility.text.font = font;
 }
 
+function access_getFontSize(fontSize){
+	return global.fonts[$ global.accessibility.text.font][$ fontSize];
+}
+
 function access_setSize(size){
 	global.accessibility.text.fontSize = size;
 }

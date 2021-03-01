@@ -248,6 +248,7 @@ function marathonHighscore(){
 		date : date_current_datetime()
 	}
 	ctrl.highScores.attempts.marathon[attempts] = attempt;
+	network_submitAttempt("marathon",attempts + 1, ctrl.stage, ctrl.totalFound);
 				
 	var bestAttempt = ctrl.highScores.bestAttempt.marathon;
 	if(bestAttempt == -1){
