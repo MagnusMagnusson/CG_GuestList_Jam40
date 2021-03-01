@@ -42,7 +42,14 @@ function network_getUser(){
 		fetch(global.networking.address+"/jam40/player?userKey="+userKey, function(results){
 			var user = json_parse(results);
 			global.networking.user = user;
+			with(textBox){
+				if(name == "online_name"){
+					title = "Your Display Name [#" + global.networking.user.salt+"]" ;
+					text = global.networking.user.name;
+				}
+			}
 		});
+		
 	}
 }
 
@@ -63,6 +70,22 @@ function network_submitAttempt(gamemode, attempt, _score, subscore){
 
 function network_getHighscores(gamemode, callback){
 	fetch(global.networking.address + "/jam40/attempt?gamemode="+gamemode, callback);
+}
+
+function network_renameMe(newName){
+		if(global.networking.status == networkstatus.connected && global.networking.user != -1){
+		var body = {
+			userKey : global.networking.user.key,
+			name: newName
+		}
+		var b = json_stringify(body);
+		var i = http_request(global.networking.address + "/jam40/player/rename","POST",global.networking.headers , b)
+
+		global.networking.requests.add(i);
+		global.networking.callbacks[$ i] = function(){
+			o_networker.alarm[0] = 2;
+		};
+	}
 }
 
 function network_getStatistics(gamemode, callback){

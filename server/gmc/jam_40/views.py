@@ -8,13 +8,14 @@ from django.views.decorators.csrf import csrf_exempt
 def player(request):
     p = Person.objects.all().filter(key = request.GET['userKey'])
     if(len(p) == 1):
-        return JsonResponse({'name': p[0].name, 'key': p[0].key})
+        return JsonResponse({'name': p[0].name,'salt': p[0].salt, 'key': p[0].key})
     else:
         p = Person()
         p.key = request.GET['userKey']
-        p.name = "Unnamed player " + str(random.randint(10000, 1000000))
+        p.name = "Unknown Guest"
+        p.salt = str(random.randint(10000, 100000))
         p.save()
-        return JsonResponse({'name': p.name, 'key': p.key})
+        return JsonResponse({'name': p.name, 'salt' : p.salt, 'key': p.key})
         
 @csrf_exempt
 def attempt(request):
@@ -46,6 +47,18 @@ def attempt(request):
             sortFunction = lambda a : (10000  * a.score) + (a.subscore if a.subscore else 0)
         return JsonResponse({"recent":Attempt.recent(gamemode), "top":Attempt.top(gamemode, sortFunction)})
     return JsonResponse({})
+
+@csrf_exempt
+def player_rename(request):
+    if(request.method == "POST"):
+        body = request.body.decode('utf-8')
+        
+        post = json.loads(body)
+        userKey = post['userKey']
+        p = Person.objects.all().filter(key = userKey)
+        if(len(p) == 1):
+            p[0].name = post['name']
+            p[0].save()
 
 def attemptStat(request):
     return JsonResponse(Attempt.statistics(request.GET['gamemode']))

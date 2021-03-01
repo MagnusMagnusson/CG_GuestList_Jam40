@@ -64,6 +64,7 @@
     {"id":{"name":"s_pants","path":"sprites/s_pants/s_pants.yy",},"order":2,},
     {"id":{"name":"scr_marathon","path":"scripts/scr_marathon/scr_marathon.yy",},"order":1,},
     {"id":{"name":"s_hair","path":"sprites/s_hair/s_hair.yy",},"order":0,},
+    {"id":{"name":"textBox","path":"objects/textBox/textBox.yy",},"order":5,},
     {"id":{"name":"scr_misc","path":"scripts/scr_misc/scr_misc.yy",},"order":7,},
     {"id":{"name":"Arial_14","path":"fonts/Arial_14/Arial_14.yy",},"order":2,},
     {"id":{"name":"o_radio_button","path":"objects/o_radio_button/o_radio_button.yy",},"order":3,},

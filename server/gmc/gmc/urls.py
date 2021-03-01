@@ -24,6 +24,7 @@ def ping(request):
 urlpatterns = [
     path('ping', ping),
     path('jam40/player', jam40.player ),
+    path('jam40/player/rename', jam40.player_rename ),
     path('jam40/attempt/stats', jam40.attemptStat ),
     path('jam40/attempt', jam40.attempt ),
 ]

@@ -7,6 +7,7 @@ import math
 class Person(models.Model):
     name = models.CharField(max_length = 30)
     key = models.CharField(primary_key = True, max_length = 128)
+    salt = models.CharField(null = False, default = "defau", max_length = 6)
 
 class Attempt(models.Model):
     id = models.AutoField(primary_key=True)
@@ -23,7 +24,7 @@ class Attempt(models.Model):
         a = sorted(a,key = sortfunction, reverse=True)
         a = a[:25]
         return [{
-            "player": x.player.name,
+            "player": x.player.name + " ["+x.player.salt+"]",
             "_score" : x.score,
             "subscore" : x.subscore,
             "attemptNr" : x.attemptNr,
@@ -36,7 +37,7 @@ class Attempt(models.Model):
         a = [x for x in Attempt.objects.all().filter(gamemode = gamemode).order_by("date")]
         a = a[:25]
         return [{
-            "player": x.player.name,
+            "player": x.player.name + " ["+x.player.salt+"]",
             "_score" : x.score,
             "subscore" : x.subscore,
             "attemptNr" : x.attemptNr,
