@@ -1,4 +1,4 @@
-draw_set_font(fnt_consolas_14);
+draw_set_font(access_getFontSize(14));
 draw_set_color(c_black);
 
 draw_text(x,y,title);

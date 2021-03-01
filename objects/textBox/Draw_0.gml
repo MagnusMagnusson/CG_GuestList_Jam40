@@ -19,3 +19,4 @@ draw_rectangle(x,y,x + 10 + w, 10+ y + h,true);
 draw_text(x + 5, y+5,text);
 
 draw_text(x, y - 25,title);
+draw_reset();

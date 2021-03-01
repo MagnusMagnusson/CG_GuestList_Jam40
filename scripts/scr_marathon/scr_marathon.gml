@@ -109,7 +109,7 @@ function marathonGameMode(){
 			
 				draw_crimsonBox(0,room_height - 64,room_width,room_height);
 				draw_set_color(c_black);
-				draw_set_font(fnt_consolas_18);
+				draw_set_font(access_getFontSize(18));
 				var displayTime = ctrl.timer;
 				if(displayTime > 10){
 					displayTime = floor(displayTime)
@@ -132,10 +132,10 @@ function marathonGameMode(){
 				
 				draw_text(32,room_height - 32, gameName);
 				
-				draw_set_font(fnt_consolas_16);
+				draw_set_font(access_getFontSize(16));
 				draw_text(128+64+64,room_height - 32, instructions);
 				
-				draw_set_font(fnt_consolas_18);
+				draw_set_font(access_getBigFont());
 				draw_text(hud_width - 256,room_height - 32, time);
 				draw_text((hud_width / 2) + 32,room_height - 32, stage);
 				draw_reset();
@@ -154,11 +154,14 @@ function marathonGameMode(){
 					var n = instance_number(o_walking_left_human);
 					var c = irandom(n - 1);
 					var i = 0;
-					with(o_walking_left_human){
-						if(c == i){
-							var clown = instance_create_layer(x,y,layer,o_clown);
+					
+					if(!instance_exists(o_clown)){
+						with(o_walking_left_human){
+							if(c == i){
+								var clown = instance_create_layer(x,y,layer,o_clown);
+							}
+							i++;
 						}
-						i++;
 					}
 				}
 				if(found > target){
@@ -186,12 +189,14 @@ function marathonGameMode(){
 			
 		gameOver : function(silent){
 			ctrl.ticker = 0;
+			ctrl.paused = true;
+			ctrl.playing = false;
 			if(!silent){
 				var result = marathonHighscore();
 				save_highScores();
+				o_results.gamemode = "marathon";
 				showGameOver();
 				o_results.bigText = "You got to stage " +string(ctrl.stage) + " and invited " + string(ctrl.totalFound) + " guests!";
-				o_results.gamemode = "marathon";
 				o_results.drawMethod = function(elem, pos) {
 					return "Attempt #"+string(elem.attempt) + " - Stage " + string(elem.stage) + " ["+string(elem.guests)+"]"
 				};

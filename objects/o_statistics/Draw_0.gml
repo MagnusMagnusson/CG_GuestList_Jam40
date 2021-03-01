@@ -7,6 +7,7 @@ if(o_results.gamemode !=  "" && global.networking.status = networkstatus.connect
 	draw_text(x,y + 20*4, "Highest Score: "+ string(o_online_scoreboard.stats[$ o_results.gamemode].max));
 	draw_text(x,y + 20*5, "Lowest Score: "+ string(o_online_scoreboard.stats[$ o_results.gamemode].min));
 } else{
+	draw_text(x,y + 50, "["+o_results.gamemode + "] - ");
 	draw_text(x,y,"Global Statistics!");
 	draw_text(x,y + 20*1, "Can't Display Global Statistics");
 

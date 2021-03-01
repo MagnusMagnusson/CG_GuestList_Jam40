@@ -34,7 +34,7 @@ function fastestHostGameMode(n) constructor{
 		static draw = function(){			
 				draw_crimsonBox(0,room_height - 64,room_width,room_height);
 				draw_set_color(c_black);
-				draw_set_font(fnt_consolas_18);
+				draw_set_font(access_getBigFont());
 				var displayTime = ctrl.timer;
 				draw_set_valign(fa_middle);
 				
@@ -54,10 +54,10 @@ function fastestHostGameMode(n) constructor{
 				
 				draw_text(32,room_height - 32, gameName);
 				
-				draw_set_font(fnt_consolas_16);
+				draw_set_font(access_getFontSize(16));
 				draw_text(128+64+64,room_height - 32, instructions);
 				
-				draw_set_font(fnt_consolas_18);
+				draw_set_font(access_getBigFont());
 				draw_text(hud_width - 256,room_height - 32, time);
 				draw_text((hud_width / 2) + 32,room_height - 32, stage);
 				draw_reset();
@@ -69,16 +69,18 @@ function fastestHostGameMode(n) constructor{
 				guestList.remove(pos);
 				found++;
 				killInput = 3;
-				if(found % 5 == 0){
+				if(found < target && found % 5 == 0){
 					ctrl.clownAlert = true;
 					var n = instance_number(o_walking_left_human);
 					var c = irandom(n - 1);
 					var i = 0;
-					with(o_walking_left_human){
-						if(c == i){
-							var clown = instance_create_layer(x,y,layer,o_clown);
+					if(!instance_exists(o_clown)){
+						with(o_walking_left_human){
+							if(c == i){
+								var clown = instance_create_layer(x,y,layer,o_clown);
+							}
+							i++;
 						}
-						i++;
 					}
 				}
 				if(found >= target){
