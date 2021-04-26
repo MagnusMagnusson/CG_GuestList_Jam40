@@ -11,3 +11,4 @@
 #macro PRODSERVER "add your own server here"
 #macro isProd false
 #macro VERSION "0.5"
+#macro API_KEY = "your_api_key_here"
