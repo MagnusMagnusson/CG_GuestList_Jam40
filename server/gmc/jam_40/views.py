@@ -4,6 +4,7 @@ import random
 from datetime import datetime
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 
 def player(request):
     p = Person.objects.all().filter(key = request.GET['userKey'])
@@ -21,11 +22,10 @@ def player(request):
 def attempt(request):
     if(request.method == "POST"):
         body = request.body.decode('utf-8')
-        print(body)
         post = json.loads(body)
-        print(25)
+        if(post['api_key'] != settings.API_KEY):
+            return JsonResponse({"success":False, "reason":"INVALID API KEY"}, 401)
         if("gamemode" in post and "userKey" in post and "_score" in post and "attemptNr" in post):
-            print(27)
             p = Person.objects.all().filter(key = post['userKey'])
             if(len(p) == 1):
                 print(30)
@@ -45,6 +45,8 @@ def attempt(request):
         sortFunction = None
         if gamemode == 'marathon':
             sortFunction = lambda a : (10000  * a.score) + (a.subscore if a.subscore else 0)
+        else:
+            sortFunction = lambda a : -a.score
         return JsonResponse({"recent":Attempt.recent(gamemode), "top":Attempt.top(gamemode, sortFunction)})
     return JsonResponse({})
 
@@ -52,8 +54,9 @@ def attempt(request):
 def player_rename(request):
     if(request.method == "POST"):
         body = request.body.decode('utf-8')
-        
         post = json.loads(body)
+        if(post['api_key'] != settings.API_KEY):
+            return JsonResponse({"success":False, "reason":"INVALID API KEY"}, 401)
         userKey = post['userKey']
         p = Person.objects.all().filter(key = userKey)
         if(len(p) == 1):
