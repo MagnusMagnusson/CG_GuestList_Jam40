@@ -60,9 +60,10 @@ function network_submitAttempt(gamemode, attempt, _score, subscore){
 			attemptNr:attempt,
 			_score:_score,
 			subscore:subscore,
-			gamemode: gamemode
+			gamemode: gamemode,
+			api_key: API_KEY
 		}
-		var b = json_stringify(body)+"\r\n\r\n\n\n";
+		var b = json_stringify(body);
 		show_debug_message(b);
 		http_request(global.networking.address + "/jam40/attempt","POST",global.networking.headers , b)
 	}
@@ -76,7 +77,8 @@ function network_renameMe(newName){
 		if(global.networking.status == networkstatus.connected && global.networking.user != -1){
 		var body = {
 			userKey : global.networking.user.key,
-			name: newName
+			name: newName,
+			api_key: API_KEY
 		}
 		var b = json_stringify(body);
 		var i = http_request(global.networking.address + "/jam40/player/rename","POST",global.networking.headers , b)
