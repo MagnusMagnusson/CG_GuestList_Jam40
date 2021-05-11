@@ -42,9 +42,6 @@ function activityMatch(guest, description){
 	if(description.activity.description == -1){
 		return true;
 	}
-	show_debug_message("Matching Activity");
-	show_debug_message(guest.id.class);
-	show_debug_message(description.activity.description);
 	switch(guest.id.class){
 		case "walking":{
 			return description.activity.description == "walking around";

@@ -9,5 +9,5 @@
 
 #macro DEVSERVER "http://localhost:8080"
 #macro PRODSERVER "https://gmcjam.mmagnusson.net"
-#macro isProd true
+#macro isProd false
 #macro VERSION "0.5"
