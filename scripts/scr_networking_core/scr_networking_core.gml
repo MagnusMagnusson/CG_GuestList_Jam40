@@ -13,6 +13,7 @@ global.networking = {
 };
 
 function network_init(){
+	if !NETWORKING_ENABLED return;
 	if(isProd){
 		global.networking.address = PRODSERVER;
 	} else{
@@ -24,12 +25,14 @@ function network_init(){
 }
 
 function fetch(url, callback){
+	if !NETWORKING_ENABLED return;
 	var ping = http_get(url);
 	global.networking.requests.add(ping);
 	global.networking.callbacks[$ ping] = callback;
 }
 
 function network_init_ping(){
+	if !NETWORKING_ENABLED return;
 	fetch(global.networking.address+"/ping",function(results){
 		global.networking.status = networkstatus.connected;
 		network_getUser();
@@ -37,6 +40,7 @@ function network_init_ping(){
 }
 
 function network_getUser(){
+	if !NETWORKING_ENABLED return;
 	if(global.networking.status = networkstatus.connected){
 		var userKey = global.options.userKey;
 		fetch(global.networking.address+"/jam40/player?userKey="+userKey, function(results){
@@ -54,29 +58,34 @@ function network_getUser(){
 }
 
 function network_submitAttempt(gamemode, attempt, _score, subscore){
+	if !NETWORKING_ENABLED return;
 	if(global.networking.status == networkstatus.connected && global.networking.user != -1){
 		var body = {
 			userKey : global.networking.user.key,
 			attemptNr:attempt,
 			_score:_score,
 			subscore:subscore,
-			gamemode: gamemode
+			gamemode: gamemode,
+			api_key: API_KEY
 		}
-		var b = json_stringify(body)+"\r\n\r\n\n\n";
+		var b = json_stringify(body);
 		show_debug_message(b);
 		http_request(global.networking.address + "/jam40/attempt","POST",global.networking.headers , b)
 	}
 }
 
 function network_getHighscores(gamemode, callback){
+	if !NETWORKING_ENABLED return;
 	fetch(global.networking.address + "/jam40/attempt?gamemode="+gamemode, callback);
 }
 
 function network_renameMe(newName){
+	if !NETWORKING_ENABLED return;
 		if(global.networking.status == networkstatus.connected && global.networking.user != -1){
 		var body = {
 			userKey : global.networking.user.key,
-			name: newName
+			name: newName,
+			api_key: API_KEY
 		}
 		var b = json_stringify(body);
 		var i = http_request(global.networking.address + "/jam40/player/rename","POST",global.networking.headers , b)
@@ -89,6 +98,7 @@ function network_renameMe(newName){
 }
 
 function network_getStatistics(gamemode, callback){
+	if !NETWORKING_ENABLED return;
 	fetch(global.networking.address + "/jam40/attempt/stats?gamemode="+gamemode, callback);
 }
 

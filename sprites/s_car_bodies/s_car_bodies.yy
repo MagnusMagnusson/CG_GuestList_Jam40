@@ -158,6 +158,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"be622a6e-2619-4625-86c7-700030582d7f","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "humans",
     "path": "folders/Sprites/humans.yy",

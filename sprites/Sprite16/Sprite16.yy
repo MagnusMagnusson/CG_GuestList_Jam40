@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ac60f212-f79a-4b6b-bd72-740f62e067a4","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "CG_GlamorousGuestList_MrMagnus",
     "path": "CG_GlamorousGuestList_MrMagnus.yyp",

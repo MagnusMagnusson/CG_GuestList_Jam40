@@ -11,3 +11,5 @@
 #macro PRODSERVER "https://gmcjam.mmagnusson.net"
 #macro isProd false
 #macro VERSION "0.5"
+#macro API_KEY  "your_api_key_here"
+#macro NETWORKING_ENABLED false

@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_crimson.ogg",
-  "duration": 5.359172,
+  "duration": 5.354172,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

@@ -1,4 +1,4 @@
-o_asif(!prepared && o_results.gamemode !=  ""){
+if(!prepared && o_results.gamemode !=  ""){
 	var attempts = array_to_Array(ctrl.highScores.attempts[$ o_results.gamemode]);
 	prepared = true;
 	avg = 0;
